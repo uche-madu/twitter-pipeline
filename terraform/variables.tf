@@ -15,3 +15,5 @@ variable "gcp_zone_1" {
   type = string
   description = "GCP Zone"
 }
+
+variable "credentials_file" {}
