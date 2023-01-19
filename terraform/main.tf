@@ -24,3 +24,22 @@ module "custom_vpc_network" {
   project_id   = var.project_id
   network_name = "twitter_pipeline_network"
 }
+
+resource "google_storage_bucket" "twitter_stream_bucket" {
+  name          = "twitter-deadletter-bucket"
+  location      = "EU"
+  force_destroy = false # change to "true" to force delete objects in the bucket when running terraform destroy
+
+  public_access_prevention = "enforced"
+}
+  
+resource "google_pubsub_topic" "twitter-stream" {
+  name = "twitter-stream"
+}
+  
+resource "google_bigquery_dataset" "twitter_dataset" {
+  dataset_id                  = "twitter_dataset"
+  description                 = "This dataset contains data streamed from Twitter"
+  location                    = "EU"
+}  
+  
