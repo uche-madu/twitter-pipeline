@@ -1,7 +1,14 @@
+setup:
+  pip install virtualenv && \
+  virtualenv ~/.venv && \
+  source ~/.venv/bin/activate
+
 install:
   pip install --upgrade pip && \
-  pip install -r requirements.txt
-
+    pip install -r requirements.txt \
+    chmod +x ./terraform_setup.sh \
+    ./terraform_setup.sh
+    
 stream_tweets:
   python main.py \
     --bearer_token=${TWITTER_BEARER_TOKEN} \
