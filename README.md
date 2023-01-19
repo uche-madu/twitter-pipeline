@@ -24,6 +24,7 @@ terraform apply
 
 2. Install dependencies:
 ```sh
+cd ..
 make install
 ```
 
