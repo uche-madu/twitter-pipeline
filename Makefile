@@ -1,7 +1,7 @@
 setup:
   pip install virtualenv && \
   virtualenv ~/.venv && \
-  source ~/.venv/bin/activate
+  . ~/.venv/bin/activate
 
 install:
   pip install --upgrade pip && \
